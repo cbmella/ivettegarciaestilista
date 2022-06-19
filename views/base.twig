@@ -1,0 +1,39 @@
+{% block html_head_container %}
+
+	{% include 'html-header.twig' %}
+	{% block head %}{% endblock %}
+</head>{% endblock %}<body class="d-flex flex-column sticky-footer-wrapper min-vh-100" data-template="base.twig">
+<a class="skip-link screen-reader-text" href="#content">{{ _e( 'Skip to content') }}</a>
+<header class="header">
+	{% block header %}
+		<nav class="navbar navbar-expand-sm navbar-dark bg-dark w-100">
+			{% include "menu.twig" with {'items': menu.get_items} %}
+		</nav>
+		{% include "carousel.twig" %}
+	{% endblock %}
+</header>
+
+<main>
+	<section id="content" role="main" class="flex-fill">
+		{% include "about-us.twig" %}
+		{% include "gallery.twig" %}
+		{% include "services.twig" %}
+		{% include "banner.twig" %}
+		{% include "testimonials.twig" %}
+		{% include "contact.twig" %}
+		{% include "map.twig" %}
+	</section>
+	{% include "partial/top.twig" %}
+</main>
+
+{% block footer %}
+	<footer id="footer">
+		{% include 'footer.twig' %}
+	</footer>
+	{{ function('wp_footer') }}
+{% endblock %}
+<script src="{{site.theme.uri}}/app.js"></script>
+
+</body></html>
+
+
